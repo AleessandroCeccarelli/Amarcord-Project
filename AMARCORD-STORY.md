@@ -152,12 +152,13 @@ Controller / Audio / Video
 Amarcord Core
  ↓
 User
+```
 
 Only when this complete pipeline works reliably should Amarcord move toward other systems.
 
-⸻
+---
 
-The ScreenScraper idea
+## The ScreenScraper idea
 
 Another important part of the original vision was that the user should not have to manually organize and identify everything.
 
@@ -169,12 +170,12 @@ The role of ScreenScraper in Amarcord is not to emulate anything.
 
 Its role is to enrich recognized games with information such as:
 
-* game metadata
-* artwork
-* titles
-* regional information
-* descriptive information
-* other available library information
+- game metadata
+- artwork
+- titles
+- regional information
+- descriptive information
+- other available library information
 
 The important architectural distinction is that Amarcord first needs to understand what the ROM is.
 
@@ -183,6 +184,8 @@ The Recognizer and ROM Database are therefore responsible for identifying the so
 ScreenScraper then becomes the metadata and artwork layer built on top of that identity.
 
 The intended flow is:
+
+```text
 ROM
  ↓
 Amarcord Recognizer
@@ -194,6 +197,7 @@ ScreenScraper
 Metadata + Artwork
  ↓
 Amarcord Library
+```
 
 This separation is important.
 
@@ -203,9 +207,9 @@ The library should not have to understand CPU emulation.
 
 Each part should do one job.
 
-⸻
+---
 
-ROM recognition and the database
+## ROM recognition and the database
 
 As the project evolved, another requirement became clear.
 
@@ -213,7 +217,7 @@ Amarcord needs a reliable way to understand imported software before placing it 
 
 This led to the concept of a centralized ROM database.
 
-The current direction is to use XML data describing supported software and systems, with a common Amarcord service responsible for loading, parsing, normalizing and making that information available to the rest of the application.
+The current direction is to use XML data describing supported software and systems, with a common Amarcord service responsible for loading, parsing, normalizing and making that information available to the rest of the system.
 
 The intention is to avoid having multiple independent components trying to understand the same ROM database.
 
@@ -225,9 +229,9 @@ Multiple consumers.
 
 The Recognizer, Importer, Library and metadata system can therefore work from the same information.
 
-⸻
+---
 
-The MAME chapter
+## The MAME chapter
 
 MAME played an important role during the development of Amarcord.
 
@@ -247,9 +251,9 @@ Instead of building an independent Apple-native emulation framework, Amarcord wo
 
 That was not the original vision.
 
-⸻
+---
 
-The decision to turn back
+## The decision to turn back
 
 The decision was therefore made to take a step back.
 
@@ -261,7 +265,7 @@ The emulation architecture would be implemented in Swift and Metal, with the ori
 
 MAME remains a technical reference during development.
 
-It is not Amarcord’s runtime.
+It is not Amarcord's runtime.
 
 There is no MAME bridge.
 
@@ -273,9 +277,9 @@ It also made the project more meaningful.
 
 Instead of connecting existing pieces together, we are building the architecture ourselves.
 
-⸻
+---
 
-The cost of doing it independently
+## The cost of doing it independently
 
 Building an emulator from the ground up is not a small task.
 
@@ -291,17 +295,17 @@ Interrupts can be individually correct while being incorrectly routed through th
 
 A mapper can work in isolation and fail when connected to a real cartridge.
 
-This is one of the most important lessons of Amarcord’s development:
+This is one of the most important lessons of Amarcord's development:
 
-Compilation is not validation.
+> Compilation is not validation.
 
 The architecture has to work as a system.
 
 That is why the project is being developed progressively, with integration becoming increasingly important as each hardware component is completed.
 
-⸻
+---
 
-The difficult part: integration
+## The difficult part: integration
 
 One of the biggest challenges is not writing individual components.
 
@@ -315,24 +319,24 @@ The same principle applies to Amarcord itself.
 
 The emulator must eventually communicate correctly with:
 
-* Amarcord Core
-* Video
-* Audio
-* Controllers
-* Filesystem
-* Save systems
-* Importer
-* Recognizer
-* ROM Database
-* Metadata services
+- Amarcord Core
+- Video
+- Audio
+- Controllers
+- Filesystem
+- Save systems
+- Importer
+- Recognizer
+- ROM Database
+- Metadata services
 
 This is why the project is deliberately resisting the temptation to simply keep adding isolated features.
 
 The goal is to build a system.
 
-⸻
+---
 
-Human + AI
+## Human + AI
 
 Amarcord is also an experiment in a different way of developing software.
 
@@ -350,9 +354,9 @@ The important thing is not to hide that process.
 
 The important thing is to make something real.
 
-⸻
+---
 
-Where Amarcord is today
+## Where Amarcord is today
 
 Amarcord is still an active development project.
 
@@ -362,6 +366,7 @@ The current priority is to complete the NES hardware and connect it properly to 
 
 The project must eventually reach the point where a real game can travel through the complete pipeline:
 
+```text
 ROM
  ↓
 Import
@@ -381,21 +386,22 @@ Video
 Save / State
  ↓
 Playable game
+```
 
 Only after this complete path has been validated will additional emulators become the next priority.
 
-⸻
+---
 
-What comes next
+## What comes next
 
 The long-term vision remains larger than the NES.
 
 Possible future systems include:
 
-* Super Nintendo
-* Master System
-* Mega Drive
-* PlayStation
+- Super Nintendo
+- Master System
+- Mega Drive
+- PlayStation
 
 But the philosophy remains the same.
 
@@ -415,9 +421,9 @@ Choose a game.
 
 Play.
 
-⸻
+---
 
-An evolving story
+## An evolving story
 
 This document is intentionally not a final specification.
 
@@ -437,8 +443,7 @@ The goal is not to pretend that the path was perfectly planned from the beginnin
 
 The goal is to document the real path.
 
-⸻
+---
 
 Amarcord — Proprietary Software
 Copyright © 2026 Alessandro Ceccarelli. All rights reserved.
-
