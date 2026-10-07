@@ -1,79 +1,194 @@
 # Amarcord
 
-A native Apple emulation framework in Swift and Metal.
+### A native Apple emulation framework in Swift and Metal.
 
-## About
+Amarcord is an independent emulation project built specifically around Apple's platforms and technologies.
 
-Amarcord is an independent, native emulation framework designed for Apple platforms.
+The project is written in **Swift** and **Metal**, with a modular architecture designed to reproduce classic hardware while taking advantage of the Apple ecosystem.
 
-The project is being developed in Swift and Metal with a modular architecture focused on hardware emulation, performance, portability and integration with the Apple ecosystem.
+---
 
-The first development target is the Nintendo Entertainment System (NES).
+## The idea
 
-The long-term goal is to provide a complete emulation environment for multiple classic systems while keeping the architecture modular and native to Apple platforms.
+Amarcord is an exploration of how a modern emulation framework can be designed natively for Apple platforms.
 
-## Current Development
+The goal is not simply to make games run.
 
-NES emulation is currently under active development.
+The goal is to build a complete, modular system where hardware emulation, graphics, audio, input, storage and application services work together as a single architecture.
 
-The current work focuses on completing the NES hardware implementation and integrating all the components required for a complete end-to-end system, including:
+---
+
+## First milestone — NES
+
+Development is currently focused on the **Nintendo Entertainment System**.
+
+The NES implementation is being developed component by component, including:
 
 - CPU
-- Bus and memory mapping
+- Bus and memory
 - PPU and video
 - APU and audio
-- Cartridge and mapper support
 - DMA
-- Interrupt handling
-- Controller input
+- Interrupts
+- Controllers
+- Cartridge and mappers
 - Timing and synchronization
 - Save and save states
-- Filesystem integration
-- ROM recognition and importing
-- ROM database
-- Metadata and artwork integration
-- Amarcord Core integration
 
-The first major milestone is to run and validate a real NES ROM through the complete Amarcord pipeline.
+The first major milestone is to complete the NES hardware and validate it through the complete Amarcord pipeline.
 
-## Architecture
+```text
+ROM
+ │
+ ▼
+Importer
+ │
+ ▼
+Recognizer
+ │
+ ▼
+ROM Database
+ │
+ ▼
+Library / Filesystem
+ │
+ ▼
+NES
+ ├── CPU
+ ├── Bus
+ ├── PPU
+ ├── APU
+ ├── DMA
+ ├── Controllers
+ └── Cartridge
+ │
+ ├── Audio
+ └── Video / Metal
+ │
+ ▼
+Amarcord Core
 
-Amarcord is being developed as a modular system where emulation hardware, platform services and application-level components have clearly separated responsibilities.
+Native Apple architecture
 
-The architecture is designed around native Apple technologies and avoids relying on an external emulator runtime.
+Amarcord is designed around native Apple technologies.
 
-## Technical References
+Swift
 
-During development, existing emulator projects and technical documentation may be studied as references to understand hardware behaviour and emulation techniques.
+Used for the emulation architecture, hardware components, services and application logic.
 
-MAME is used as a technical reference during development.
+Metal
+
+Used for the graphics pipeline, with the objective of keeping video processing as close to the GPU as possible.
+
+Apple platforms
+
+The architecture is being developed with Apple’s frameworks and platform capabilities in mind rather than relying on an external emulator runtime.
+
+⸻
+
+Architecture
+
+Amarcord is organized around independent components with clearly defined responsibilities.
+
+The long-term architecture includes:
+
+* Emulation Core
+* Console and Machine abstraction
+* Hardware components
+* Cartridge and mapper system
+* Video pipeline
+* Audio pipeline
+* Controller system
+* Filesystem
+* ROM Importer
+* ROM Recognizer
+* ROM Database
+* Metadata and artwork services
+* Save and Save State system
+
+The intention is to keep the architecture modular so that new systems can be introduced without redesigning the entire framework.
+
+⸻
+
+Technical references
+
+Emulation development requires understanding how the original hardware behaves.
+
+Existing emulator projects, hardware documentation and technical material may therefore be studied as references during development.
+
+MAME is used as a technical reference.
 
 Amarcord does not use the MAME emulator runtime and does not use a MAME bridge.
 
-Amarcord's emulation components are independently implemented as part of the Amarcord project.
+The Amarcord emulation components are independently implemented as part of this project.
 
-## Project Status
+⸻
 
-Amarcord is an active development project and is not currently considered a finished emulator.
+Current status
 
-The public repository is intended to document the project, its architecture and its development progress.
+Amarcord is an active development project.
 
-## Community & Technical Discussion
+The current priority is to complete the NES implementation and connect it to the rest of the Amarcord architecture.
 
-Experienced developers with knowledge of emulation, CPU/PPU architecture, Swift, Metal or Apple platform development are welcome to discuss the project and provide technical feedback.
+The project is not yet a finished emulator.
 
-Constructive technical reviews and independent opinions are particularly welcome.
+There is still substantial hardware implementation, integration and validation work ahead.
 
-## Source Code
+⸻
+
+Future systems
+
+Once the NES implementation and complete Amarcord pipeline have been validated, development can move toward additional classic systems.
+
+The architecture is intended to support systems such as:
+
+* Super Nintendo
+* Master System
+* Mega Drive
+* PlayStation
+
+The NES remains the first complete target.
+
+⸻
+
+Technical discussion
+
+The public repository exists as a project showcase and as a place for technical discussion.
+
+Developers with experience in:
+
+* emulation
+* CPU / PPU / APU architecture
+* Swift
+* Metal
+* Apple platforms
+* low-level systems
+
+are welcome to review the architecture, ask questions and share constructive technical feedback.
+
+The Discussions section is the preferred place for technical conversations.
+
+⸻
+
+Source code
 
 Amarcord is proprietary, closed-source software.
 
-The source code is not publicly distributed through this repository.
+The public repository contains project information, documentation and development material.
+
+The Amarcord source code is not publicly distributed.
 
 All rights reserved.
 
-## Author
+⸻
 
-Copyright © 2026 Alessandro Ceccarelli.
+Author
 
-Amarcord — Proprietary Software.
+Alessandro Ceccarelli
+
+Technology enthusiast, exploring emulation and Apple platforms with a little help from AI.
+
+⸻
+
+Amarcord — Proprietary Software
+Copyright © 2026 Alessandro Ceccarelli. All rights reserved.
